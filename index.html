@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <title>Florian Huber</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --text-light: #1a1a1a;
+            --bg-light: #fafafa;
+            --subtle-light: #666;
+            --line-light: #e5e5e5;
+
+            --text-dark: #e6e6e6;
+            --bg-dark: #111;
+            --subtle-dark: #999;
+            --line-dark: #333;
+
+            --link-light: #2a66ff;
+            --link-dark: #6f9aff;
+        }
+
+        /* Theme Variables */
+        html[data-theme='light'] {
+            --text: var(--text-light);
+            --bg: var(--bg-light);
+            --subtle: var(--subtle-light);
+            --line: var(--line-light);
+            --link: var(--link-light);
+        }
+
+        html[data-theme='dark'] {
+            --text: var(--text-dark);
+            --bg: var(--bg-dark);
+            --subtle: var(--subtle-dark);
+            --line: var(--line-dark);
+            --link: var(--link-dark);
+        }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            max-width: 780px;
+            margin: 60px auto;
+            padding: 0 24px;
+            line-height: 1.7;
+            color: var(--text);
+            background: var(--bg);
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        h1 {
+            font-weight: 600;
+            font-size: 2.4rem;
+            letter-spacing: -0.5px;
+            margin-bottom: 6px;
+        }
+
+        h2 {
+            margin-top: 48px;
+            margin-bottom: 12px;
+            font-size: 1.35rem;
+            font-weight: 600;
+            letter-spacing: -0.3px;
+        }
+
+        .affiliation {
+            color: var(--subtle);
+            margin-top: 0;
+            font-size: 1.05rem;
+        }
+
+        a {
+            color: var(--link);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid var(--line);
+            margin: 36px 0;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 6px;
+        }
+
+        /* Toggle Button */
+        #theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 6px 14px;
+            background: none;
+            border: 1px solid var(--line);
+            border-radius: 20px;
+            cursor: pointer;
+            color: var(--text);
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        #theme-toggle:hover {
+            background: var(--line);
+        }
+    </style>
+</head>
+<body>
+
+    <button id="theme-toggle">🌙 Dark Mode</button>
+
+    <h1>Florian Huber</h1>
+    <p class="affiliation">Data Science • Remote Sensing • Environmental Systems</p>
+
+    <p>
+        Email: <a href="mailto:your@email.com">your@email.com</a><br>
+        GitHub: <a href="https://github.com/victormaus">github.com/victormaus</a>
+    </p>
+
+    <hr>
+
+    <h2>About</h2>
+    <p>
+        I am a researcher focusing on the intersection of environmental systems,
+        remote sensing, and data science. My work involves large-scale geospatial
+        computation, open-source tools, and methodological development for 
+        monitoring socio-environmental change.
+    </p>
+
+    <h2>Research Interests</h2>
+    <ul>
+        <li>Geospatial & environmental data science</li>
+        <li>Satellite data processing</li>
+        <li>Socio-environmental monitoring</li>
+        <li>Open-source computation</li>
+    </ul>
+
+    <h2>Selected Publications</h2>
+    <ul>
+        <li>Maus, V. et al. <em>Title of your publication</em>. Journal, Year.</li>
+        <li>Maus, V. et al. <em>Another article</em>. Journal, Year.</li>
+    </ul>
+
+    <h2>Teaching</h2>
+    <ul>
+        <li>Course / Lecture — Institution, Year</li>
+        <li>Workshop / Seminar — Year</li>
+    </ul>
+
+    <h2>CV</h2>
+    <p><a href="cv.pdf">Download CV (PDF)</a></p>
+
+
+<script>
+    const btn = document.getElementById('theme-toggle');
+    const root = document.documentElement;
+
+    // Load saved theme
+    const saved = localStorage.getItem('theme');
+    if (saved) {
+        root.setAttribute('data-theme', saved);
+        btn.textContent = saved === 'dark' ? "☀️ Light Mode" : "🌙 Dark Mode";
+    }
+
+    btn.addEventListener('click', () => {
+        const current = root.getAttribute('data-theme');
+        const next = current === 'light' ? 'dark' : 'light';
+        
+        root.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+        btn.textContent = next === 'dark' ? "☀️ Light Mode" : "🌙 Dark Mode";
+    });
+</script>
+
+</body>
+</html>
