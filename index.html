@@ -110,6 +110,22 @@
         #theme-toggle:hover {
             background: var(--line);
         }
+
+
+
+        .profile-photo {
+    display: block;
+    margin: 32px auto 24px auto; /* centers horizontally */
+    width: 180px;                /* adjust size as you like */
+    max-width: 100%;
+    border-radius: 50%;          /* makes it circular */
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease;
+        }
+
+        .profile-photo:hover {
+            transform: scale(1.03);
+        }
     </style>
 </head>
 <body>
@@ -117,6 +133,10 @@
     <button id="theme-toggle">🌙 Dark Mode</button>
 
     <h1>Florian Huber</h1>
+
+    <img src="profile.jpg" alt="Florian Huber" class="profile-photo">
+
+    
     <p class="affiliation"> Physical Supply Use Tables • Optimization Algorithms • Political Economy of Copper   </p>
 
     <p>
